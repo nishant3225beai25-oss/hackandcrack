@@ -1,0 +1,12 @@
+hemant|255|100|10|Password Cracker
+hemant|160|100|20|Password Cracker
+hemant|258|100|54|Password Cracker
+hemant|10|25|11|Password Cracker
+agamdeep|0|0|0|Logic Gate
+agamdeep|160|70|0|Logic Gate
+hemant|45|40|0|Password Cracker
+hemant|0|0|0|Password Cracker
+hemant|0|0|0|Binary Decoder
+hemant|0|0|0|Password Cracker
+hemant|17|25|0|Password Cracker
+hemant|20|40|0|Word Scramble
