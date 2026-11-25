@@ -1,4 +1,4 @@
-package com.hackncrack.main;
+ package com.hackncrack.main;
 
 import com.hackncrack.exceptions.InvalidHackInputException;
 import com.hackncrack.exceptions.SaveFileCorruptedException;
@@ -11,7 +11,6 @@ import com.hackncrack.services.PlayerService;
 import com.hackncrack.ui.AnsiColors;
 import com.hackncrack.ui.ConsoleUI;
 import com.hackncrack.ui.InputValidator;
-
 import java.util.List;
 
 public class HackNCrackApp {
