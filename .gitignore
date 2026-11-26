@@ -1,6 +1,19 @@
 
+# Java compiled output
 out/
+bin/
 *.class
-.idea/
+
+# Runtime data
+data/
+*.dat
+*.csv
+
+# IDE settings
 .vscode/
+.idea/
+*.iml
+
+# Operating system files
 .DS_Store
+Thumbs.db
