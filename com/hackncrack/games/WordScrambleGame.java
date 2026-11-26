@@ -1,11 +1,11 @@
-package com.hackncrack.games;
+
+ package com.hackncrack.games;
 
 import com.hackncrack.exceptions.InvalidHackInputException;
 import com.hackncrack.exceptions.TimeExpiredException;
 import com.hackncrack.models.Score;
 import com.hackncrack.ui.AnsiColors;
 import com.hackncrack.ui.ConsoleUI;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -30,7 +30,7 @@ public class WordScrambleGame extends AbstractGame {
     }
 
     public WordScrambleGame(ConsoleUI ui, int difficulty) {
-        super("Word Scramble", "Unscramble the mixed-up letters to find the word", difficulty, 60);
+        super("WordScramble", "Unscramble the mixed-up letters to find the word", difficulty, 60);
         this.ui = ui;
         this.wordQueue = new LinkedList<>();
     }
@@ -95,7 +95,7 @@ public class WordScrambleGame extends AbstractGame {
 
         String modeTag = isSurvivalMode() ? "SURVIVAL - 3 LIVES" : "3-MINUTE BLITZ";
         ui.printHeader(getName().toUpperCase() + " [" + modeTag + "]");
-        ui.println(AnsiColors.BRIGHT_YELLOW + "Unscramble the mixed-up letters. You get 2 tries per word." + AnsiColors.RESET);
+        ui.println(AnsiColors.BRIGHT_YELLOW + "Unscramble the mixed letters. You get 2 tries per word." + AnsiColors.RESET);
         ui.println(AnsiColors.BRIGHT_YELLOW + "1st try = +" + firstTryPoints + " pts | 2nd try = +" + secondTryPoints + " pts (10/5 pts x difficulty " + diff + ")." + AnsiColors.RESET);
 
         if (isSurvivalMode()) {
