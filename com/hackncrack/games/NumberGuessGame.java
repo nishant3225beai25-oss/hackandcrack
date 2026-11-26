@@ -27,9 +27,9 @@ public class NumberGuessGame extends AbstractGame {
 
     private int getMaxAttempts() {
         return switch (getDifficulty()) {
-            case 1 -> 10; // Easy
-            case 3 -> 5;  // Hard
-            default -> 7; // Medium
+            case 1 -> 10; 
+            case 3 -> 5;  
+            default -> 7; 
         };
     }
 
