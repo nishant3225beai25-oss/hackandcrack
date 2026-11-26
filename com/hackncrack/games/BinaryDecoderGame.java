@@ -11,6 +11,7 @@ public class BinaryDecoderGame extends AbstractGame {
     private final ConsoleUI ui;
     private final Random random;
     private final Set<Integer> usedValues;
+    private boolean stopped;
 
     public BinaryDecoderGame(ConsoleUI ui) {
         this(ui, 2);
@@ -21,6 +22,7 @@ public class BinaryDecoderGame extends AbstractGame {
         this.ui = ui;
         this.random = new Random();
         this.usedValues = new HashSet<>();
+        this.stopped = false;
     }
 
     @Override
@@ -31,6 +33,8 @@ public class BinaryDecoderGame extends AbstractGame {
     @Override
     protected void onSessionStart() {
         usedValues.clear();
+        stopped = false;
+        ui.println(AnsiColors.DIM + "Type 'stop' anytime to end early and keep your earned points." + AnsiColors.RESET);
     }
 
     @Override
@@ -57,7 +61,7 @@ public class BinaryDecoderGame extends AbstractGame {
 
         return new RoundChallenge(
                 AnsiColors.BRIGHT_CYAN + "Binary (" + bitWidth + "-bit): " + paddedBin + AnsiColors.RESET,
-                "Enter decimal equivalent: ",
+                "Enter decimal equivalent (or 'stop'): ",
                 expected,
                 "",
                 "Decimal value was: " + expected,
@@ -67,11 +71,20 @@ public class BinaryDecoderGame extends AbstractGame {
 
     @Override
     protected String validateFormat(String rawInput) {
+        if (rawInput.equalsIgnoreCase("stop") || rawInput.equalsIgnoreCase("exit")) {
+            stopped = true;
+            return "Stopping game and tallying your earned score...";
+        }
         try {
             Integer.parseInt(rawInput);
             return null;
         } catch (NumberFormatException e) {
-            return "Invalid number. Enter a whole decimal integer.";
+            return "Invalid number. Enter a whole decimal integer (or 'stop').";
         }
+    }
+
+    @Override
+    protected boolean canContinue(int lives, long blitzEndTime) {
+        return !stopped && super.canContinue(lives, blitzEndTime);
     }
 }
