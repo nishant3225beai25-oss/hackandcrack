@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class LogicGateGame extends AbstractGame {
-    private static final String[] BINARY_GATES = {"AND", "OR", "XOR", "NAND", "NOR"};
+    private static final String[] BINARY_GATES = { "AND", "OR", "XOR", "NAND", "NOR" };
 
     private final ConsoleUI ui;
     private final Random random;
@@ -55,8 +55,7 @@ public class LogicGateGame extends AbstractGame {
                 expected,
                 "",
                 "Correct output was: " + expected,
-                false
-        );
+                false);
     }
 
     @Override
@@ -71,12 +70,12 @@ public class LogicGateGame extends AbstractGame {
         if (difficulty == 1) {
             if (random.nextInt(4) == 0) {
                 int a = random.nextInt(2);
-                return new String[]{"NOT " + a, String.valueOf(1 - a)};
+                return new String[] { "NOT " + a, String.valueOf(1 - a) };
             }
             int a = random.nextInt(2);
             int b = random.nextInt(2);
             String gate = BINARY_GATES[random.nextInt(BINARY_GATES.length)];
-            return new String[]{a + " " + gate + " " + b, String.valueOf(evalGate(gate, a, b))};
+            return new String[] { a + " " + gate + " " + b, String.valueOf(evalGate(gate, a, b)) };
         } else if (difficulty == 3) {
             int a = random.nextInt(2);
             int b = random.nextInt(2);
@@ -88,7 +87,7 @@ public class LogicGateGame extends AbstractGame {
 
             int out = evalGate(g3, evalGate(g1, a, b), evalGate(g2, c, d));
             String expr = "(" + a + " " + g1 + " " + b + ") " + g3 + " (" + c + " " + g2 + " " + d + ")";
-            return new String[]{expr, String.valueOf(out)};
+            return new String[] { expr, String.valueOf(out) };
         } else {
             int a = random.nextInt(2);
             int b = random.nextInt(2);
@@ -101,7 +100,7 @@ public class LogicGateGame extends AbstractGame {
             int rightVal = invertRight ? (1 - c) : c;
             String rightText = invertRight ? "(NOT " + c + ")" : String.valueOf(c);
             String expr = "(" + a + " " + g1 + " " + b + ") " + g2 + " " + rightText;
-            return new String[]{expr, String.valueOf(evalGate(g2, inner, rightVal))};
+            return new String[] { expr, String.valueOf(evalGate(g2, inner, rightVal)) };
         }
     }
 
