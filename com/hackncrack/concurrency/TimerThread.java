@@ -24,8 +24,7 @@ public class TimerThread extends Thread {
             }
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            // Keep timeExpired true if it already fired; only clear if we were interrupted
-            // before the countdown reached zero (i.e., user stopped the timer early).
+        
             if (secondsRemaining > 0) {
                 timeExpired = false;
             }
